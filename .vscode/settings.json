@@ -1,0 +1,5 @@
+{
+    "git.enabled": true,
+    "git.terminalGitEditor": false,
+    "git.useForcePushIfIncludes": true
+}

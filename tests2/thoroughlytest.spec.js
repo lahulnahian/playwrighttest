@@ -1,0 +1,30 @@
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  await page.goto('https://insurancewebsitedemo.com/');
+  await expect(page.locator('#skrollr-body')).toContainText('Your IndependentInsurance Agency');
+  await page.getByRole('link', { name: 'GET STARTED' }).click();
+  await page.getByRole('link', { name: 'Auto Insurance Auto Insurance' }).click();
+  await page.getByRole('link', { name: 'Request A Quote' }).click();
+  await page.getByRole('link', { name: 'Boat Insurance Boat Insurance' }).click();
+  await page.getByLabel('First Name').click();
+  await page.getByLabel('First Name').press('CapsLock');
+  await page.getByLabel('First Name').fill('Mofiz');
+  await page.getByLabel('Last Name').click();
+  await page.getByLabel('Last Name').press('CapsLock');
+  await page.getByLabel('Last Name').fill('Alam');
+  await page.getByLabel('Email Address:').click();
+  await page.getByLabel('Email Address:').fill('mofizalam431@gmailcom');
+  await page.getByLabel('Phone Number:').click();
+  await page.getByLabel('Phone Number:').fill('6269911211');
+  await page.getByLabel('Digit Zip:').click();
+  await page.getByLabel('Digit Zip:').fill('11321');
+  await expect(page.getByRole('button', { name: 'In a Hurry? Submit Now' })).toBeVisible();
+  await page.getByRole('button', { name: 'In a Hurry? Submit Now' }).click();
+  await page.getByLabel('Personal', { exact: true }).click();
+  await page.getByRole('link', { name: 'Renters Insurance', exact: true }).click();
+  await expect(page.getByRole('link', { name: 'Renters Insurance Quote' })).toBeVisible();
+  await expect(page.locator('h1')).toContainText('Nevada Renters Insurance');
+  await page.getByRole('link', { name: 'Renters Insurance Quote' }).click();
+  await page.getByRole('link', { name: 'Request A Quote' }).click();
+});
